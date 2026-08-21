@@ -12,7 +12,9 @@
         "url": "git+https://github.com/lonewolfyx/query-pkg.git"
     },
     "bugs": "https://github.com/lonewolfyx/query-pkg/issues",
-    "keywords": [],
+    "keywords": [
+        "package"
+    ],
     "exports": {
         ".": "./dist/index.mjs",
         "./package.json": "./package.json"
