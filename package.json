@@ -1,0 +1,58 @@
+{
+    "name": "query-pkg",
+    "type": "module",
+    "version": "0.0.0",
+    "packageManager": "pnpm@10.15.1",
+    "description": "Get information on local packages.",
+    "author": "lonewolfyx",
+    "license": "MIT",
+    "homepage": "https://github.com/lonewolfyx/query-pkg#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lonewolfyx/query-pkg.git"
+    },
+    "bugs": "https://github.com/lonewolfyx/query-pkg/issues",
+    "keywords": [],
+    "exports": {
+        ".": "./dist/index.mjs",
+        "./package.json": "./package.json"
+    },
+    "main": "./dist/index.mjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.mts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dev": "tsdown --watch",
+        "build": "tsdown",
+        "release": "npm publish",
+        "lint": "eslint",
+        "lint:fix": "eslint --fix",
+        "prepublishOnly": "pnpm build",
+        "prepare": "simple-git-hooks"
+    },
+    "devDependencies": {
+        "@antfu/eslint-config": "^5.4.1",
+        "@lonewolfyx/tsconfig": "^0.0.6",
+        "@types/node": "^24.10.9",
+        "eslint": "^9.39.2",
+        "lint-staged": "^16.2.7",
+        "picocolors": "^1.1.1",
+        "simple-git-hooks": "^2.13.1",
+        "tsdown": "^0.14.2",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.3"
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org",
+        "access": "public"
+    },
+    "simple-git-hooks": {
+        "pre-commit": "npx lint-staged",
+        "commit-msg": "node scripts/verify-commit.js"
+    },
+    "lint-staged": {
+        "*": "eslint --fix"
+    }
+}
